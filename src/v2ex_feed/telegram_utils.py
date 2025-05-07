@@ -62,17 +62,17 @@ class PostPayload:
             '<blockquote expandable>[此贴没有内容～]</blockquote>'
         )
 
-        author_line = f'👤 <a href="{self.author_uri}">{html.escape(self.author_name)}</a>' if self.author_name else None
+        author_line = f'作者: <a href="{self.author_uri}">{html.escape(self.author_name)}</a>' if self.author_name else None
 
         if self.node_name:
             raw = "".join(self.node_name.split()).replace("#", "")
             tag = html.escape(raw).strip()
-            node_line = f"🏷️ #{tag}{settings.TELEGRAM_CHAT_USERNAME}"
+            node_line = f"标签: #{tag}{settings.TELEGRAM_CHAT_USERNAME}"
         else:
             node_line = None
 
-        time_line = f"🕒 {self._fmt_published()}" if self.published else None
-        link_line = f'🔗 <a href="{self.link}">阅读原帖</a>' if self.link else None
+        time_line = f"时间: {self._fmt_published()}" if self.published else None
+        link_line = f'链接: {self.link}' if self.link else None
 
         parts = [
             header,
