@@ -67,7 +67,7 @@ class PostPayload:
         if self.node_name:
             raw = "".join(self.node_name.split()).replace("#", "")
             tag = html.escape(raw).strip()
-            node_line = f"标签: #{tag}{settings.TELEGRAM_CHAT_USERNAME}"
+            node_line = f"标签: #{tag}"
         else:
             node_line = None
 
