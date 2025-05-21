@@ -28,7 +28,7 @@ FROM python:3.13-slim AS runner
 # 只拷贝需要的虚拟环境和源码
 COPY --from=builder /app/.venv /app/.venv
 COPY --from=builder /app/src /app/src
-
+ENV TZ="Asia/Shanghai"
 # 设置环境变量和工作目录
 ENV VIRTUAL_ENV="/app/.venv"
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
