@@ -3,6 +3,7 @@ services:
     build:
       context: .
     image: v2ex-feed
+    container_name: "v2ex-feed"
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
